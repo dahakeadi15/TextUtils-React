@@ -9,11 +9,32 @@ export default function TextForm(props) {
     setText(text.toLowerCase());
   };
 
+  const handleCopyClick = (event) => {
+    navigator.clipboard.writeText(text);
+    const copyBtn = event.target;
+    copyBtn.classList.add("disabled");
+    copyBtn.innerText = "Copied!";
+    setInterval(() => {
+      copyBtn.classList.remove("disabled");
+      copyBtn.innerText = "Copy Text";
+    }, 2500);
+  };
+
+  const handleClearClick = () => {
+    setText("");
+    setWordCount(0);
+  };
+
   const handleOnChange = (event) => {
     setText(event.target.value);
+    const wordsArr = event.target.value.split(" ").filter((element) => {
+      return element !== "";
+    });
+    setWordCount(wordsArr.length);
   };
 
   const [text, setText] = useState("");
+  const [wordCount, setWordCount] = useState(0);
 
   return (
     <>
@@ -28,11 +49,19 @@ export default function TextForm(props) {
         <button className="btn btn-primary mx-1" onClick={handleLoClick}>
           Convert to Lowercase
         </button>
+        <button id="copy-btn" className="btn btn-primary mx-1" onClick={handleCopyClick}>
+          Copy Text
+        </button>
+        <button className="btn btn-outline-primary mx-1" onClick={handleClearClick}>
+          Clear Text
+        </button>
       </div>
       <div className="container my-3">
         <h2>Your text summary</h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} Minutes read</p>
+        <p>
+          {wordCount} words and {text.length} characters
+        </p>
+        <p>{0.008 * wordCount} Minutes read</p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
