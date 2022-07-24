@@ -9,6 +9,11 @@ export default function TextForm(props) {
     setText(text.toLowerCase());
   };
 
+  const handleRmExSpacesClick = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "))
+  };
+
   const handleCopyClick = (event) => {
     navigator.clipboard.writeText(text);
     const copyBtn = event.target;
@@ -48,6 +53,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-1" onClick={handleLoClick}>
           Convert to Lowercase
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleRmExSpacesClick}>
+          Remove Extra Spaces
         </button>
         <button id="copy-btn" className="btn btn-primary mx-1" onClick={handleCopyClick}>
           Copy Text
