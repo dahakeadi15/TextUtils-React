@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
+      <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -22,7 +22,7 @@ export default function Navbar(props) {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ms-auto mb-lg-0">
+            <ul className="navbar-nav mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
                   Home
@@ -30,10 +30,23 @@ export default function Navbar(props) {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/">
-                  {props.aboutText}
+                  {/* {props.aboutText} */}
+                  About Textutils
                 </a>
               </li>
             </ul>
+            <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"} ms-auto`}>
+              <input
+                className="form-check-input"
+                onClick={props.toggleMode}
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+                Enable DarkMode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -43,10 +56,10 @@ export default function Navbar(props) {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  aboutText: PropTypes.string.isRequired,
+  // aboutText: PropTypes.string.isRequired,
 };
 
 Navbar.defaultProps = {
   title: "Set title here",
-  aboutText: "About text here",
+  // aboutText: "About text here",
 };
