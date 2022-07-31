@@ -1,16 +1,16 @@
 // ! props should be read-only
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <div>
       <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <a className="navbar-brand" href="#">
             {props.title}
-          </Link>
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -25,16 +25,16 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <a className="nav-link active" aria-current="page" href="#">
                   Home
-                </Link>
+                </a>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/about">
-                  {/* {props.aboutText} */}
+              {/* <li className="nav-item">
+                <a className="nav-link" href="#">
+                  {props.aboutText}
                   About Textutils
-                </Link>
-              </li>
+                </a>
+              </li> */}
             </ul>
             <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"} ms-auto`}>
               <input
