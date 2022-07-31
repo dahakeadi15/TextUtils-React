@@ -35,17 +35,28 @@ export default function Navbar(props) {
                 </a>
               </li>
             </ul>
-            <div className={`form-check form-switch text-${props.mode === "light" ? "dark" : "light"} ms-auto`}>
-              <input
-                className="form-check-input"
-                onClick={props.toggleMode}
-                type="checkbox"
-                role="switch"
-                id="flexSwitchCheckDefault"
-              />
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-                Enable DarkMode
-              </label>
+            <div className="ms-auto navbar-nav">
+              <div className="btn-toolbar nav-item" role="toolbar" aria-label="Toolbar with button groups">
+                <div className="btn-group me-2" role="group" aria-label="First group">
+                  <button type="button" className="btn btn-primary" onClick={props.toggleMode}></button>
+                  <button type="button" className="btn btn-secondary" onClick={props.toggleMode}></button>
+                  <button type="button" className="btn btn-success" onClick={props.toggleMode}></button>
+                  <button type="button" className="btn btn-danger" onClick={props.toggleMode}></button>
+                  <button type="button" className="btn btn-warning" onClick={props.toggleMode}></button>
+                </div>
+              </div>
+              <div className={`nav-item form-check form-switch text-${props.mode === "light" ? "dark" : "light"}`}>
+                <input
+                  className="form-check-input"
+                  onClick={props.toggleMode}
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+                  Enable DarkMode
+                </label>
+              </div>
             </div>
           </div>
         </div>

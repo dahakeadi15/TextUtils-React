@@ -18,8 +18,32 @@ function App() {
     }, 1500);
   };
 
-  const toggleMode = () => {
-    if (mode === "light") {
+  const toggleMode = (event) => {
+    console.log(event.target.checked);
+    if (event.target.checked === undefined) {
+      const theme = event.target.classList[1].slice(4);
+      if (theme === "primary") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#0d6efd";
+        showAlert("Dark mode has been enabled.", "success");
+      } else if (theme === "secondary") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#6c757d";
+        showAlert("Dark mode has been enabled.", "success");
+      } else if (theme === "success") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#198754";
+        showAlert("Dark mode has been enabled.", "success");
+      } else if (theme === "danger") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#dc3545";
+        showAlert("Dark mode has been enabled.", "success");
+      } else if (theme === "warning") {
+        setMode("dark");
+        document.body.style.backgroundColor = "#ffc720";
+        showAlert("Dark mode has been enabled.", "success");
+      }
+    } else if (event.target.checked) {
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark mode has been enabled.", "success");
