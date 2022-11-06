@@ -40,10 +40,10 @@ function App() {
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>
-            <Route exact path="/about" element={<About mode={mode} />} />
+            <Route exact path="/TextUtils-React/about" element={<About mode={mode} />} />
             <Route
               exact
-              path="/"
+              path="/TextUtils-React/"
               element={<TextForm showAlert={showAlert} heading="Enter the text to analyse below" mode={mode} />}
             />
           </Routes>

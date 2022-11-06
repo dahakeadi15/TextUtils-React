@@ -8,7 +8,7 @@ export default function Navbar(props) {
     <div>
       <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/TextUtils-React/">
           {/* <a className="navbar-brand" href="#"> */}
             {props.title}
           </Link>
@@ -26,13 +26,13 @@ export default function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link active" aria-current="page" to="/TextUtils-React/">
                 {/* <a className="nav-link active" aria-current="page" href="#"> */}
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link className="nav-link" to="/TextUtils-React/about">
                 {/* <a className="nav-link" href="#"> */}
                   {/* {props.aboutText} */}
                   About Textutils
